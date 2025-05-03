@@ -1,0 +1,100 @@
+🖥️ What Is a Command-Line Application?
+A command-line application is a program you interact with using a terminal (also called the command line or shell) — without clicking or using a graphical interface. You type in commands to tell the computer what to do.
+
+Example:
+Typing this in the terminal:
+
+bash
+Copy
+Edit
+gobuster -u http://fakebank.thm -w wordlist.txt dir
+...will start Gobuster and scan for hidden pages on a website.
+
+🧰 What Is Gobuster?
+Gobuster is a command-line tool used for:
+
+Brute-forcing URLs (directories or pages) on websites.
+
+Finding hidden content like /admin, /secret, /login that is not visible on the main site.
+
+🧪 The Gobuster Command Explained
+bash
+Copy
+Edit
+gobuster -u http://fakebank.thm -w wordlist.txt dir
+🧩 Breakdown:
+Part	Meaning
+gobuster	Starts the tool
+-u	(URL) The website you want to scan (e.g., http://fakebank.thm)
+-w	(Wordlist) A file with possible directory or page names (e.g., wordlist.txt)
+dir	Tells Gobuster to search for directories (not DNS or files)
+
+🧠 What Happens When You Run It?
+Gobuster:
+
+Takes every word in wordlist.txt
+
+Tries to open http://fakebank.thm/<word> (like /admin, /bank-transfer)
+
+Shows the status code:
+
+200 – Page exists ✅
+
+301 – Redirected
+
+403 – Exists but forbidden
+
+404 – Not shown (means page doesn't exist)
+
+🧾 Example Output from Gobuster
+bash
+Copy
+Edit
+/images (Status: 301)
+/bank-transfer (Status: 200)
+✅ This means:
+
+/images exists (but redirects)
+
+/bank-transfer is a real page!
+
+🏦 Hack the Bank Simulation
+Open your browser inside TryHackMe.
+
+Go to:
+
+arduino
+Copy
+Edit
+http://fakebank.thm/bank-transfer
+This hidden page lets you transfer money. (In the real world, this would be private, but here it's exposed.)
+
+Transfer $2000 from account 2276 to your account 8881.
+
+Check your account balance — refresh the page to see the updated amount.
+
+👨‍💻 Why This Is Important in Real Life
+Websites often accidentally leave hidden pages public (e.g., /admin, /config).
+
+Hackers use tools like Gobuster to find these and exploit them.
+
+Penetration testers (ethical hackers) use this skill to help companies find and fix issues.
+
+🔐 Ethical Hacking Tip
+You must never scan or hack real websites without permission. This simulation is legal because it’s in a safe lab environment on TryHackMe.
+
+❌ Ending the Session
+Always click the red "Terminate" button after you're done to shut down the virtual machine and save resources.
+
+✅ Summary – What You Learned Today:
+What a terminal and command-line tool is.
+
+How to use Gobuster to find hidden web pages.
+
+How to interpret status codes like 200 and 301.
+
+Simulated a real-world bank transfer exploit.
+
+Understood why hidden URLs can be dangerous.
+
+Learned the importance of ethical hacking.
